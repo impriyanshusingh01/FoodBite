@@ -31,7 +31,7 @@ private final S3Client s3Client;
 private String bucket;
 
     @Override
-    public FoodResponse addFood(FoodRequest foodRequest) {
+    public FoodResponse addFood(FoodRequest foodRequest, MultipartFile file) {
         FoodEntity newFoodEntity = convertToFoodRequest(foodRequest);
         String imageUrl = uploadFile(file);
         newFoodEntity.setImageUrl(imageUrl);
@@ -55,7 +55,7 @@ private String bucket;
            PutObjectResponse response = s3Client.putObject(putObjectRequest, RequestBody.fromBytes(file.getBytes()));
 
            if(response.sdkHttpResponse().isSuccessful()){
-               return "http://"+bucket+"amazon.s3.com/"+key;
+               return "http://"+bucket+".s3.amazonaws.com/"+key;
            } else {
                throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "File uploading failed");
            }

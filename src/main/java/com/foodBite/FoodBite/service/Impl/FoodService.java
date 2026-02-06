@@ -6,6 +6,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 public interface FoodService {
 
-    public FoodResponse addFood(FoodRequest foodRequest);
+    public FoodResponse addFood(FoodRequest foodRequest, MultipartFile file);
     public String uploadFile(MultipartFile file);
 }
