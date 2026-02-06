@@ -1,0 +1,1 @@
+# Introducing ‘FoodBite’—a food e-commerce platform inspired by popular delivery services. This project is right now in development process
