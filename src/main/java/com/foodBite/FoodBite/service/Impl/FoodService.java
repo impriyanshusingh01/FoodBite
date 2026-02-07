@@ -4,8 +4,16 @@ import com.foodBite.FoodBite.modal.request.FoodRequest;
 import com.foodBite.FoodBite.modal.response.FoodResponse;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.List;
+
 public interface FoodService {
 
-    public FoodResponse addFood(FoodRequest foodRequest, MultipartFile file);
-    public String uploadFile(MultipartFile file);
+     FoodResponse addFood(FoodRequest foodRequest, MultipartFile file);
+    String uploadFile(MultipartFile file);
+    List<FoodResponse> getAllFood();
+    FoodResponse getFoodById(String foodId);
+    boolean deleteFile(String filename);
+    void deleteFileById(String foodId);
+    FoodResponse updateFoodById(String foodId, FoodRequest foodRequest);
+
 }
