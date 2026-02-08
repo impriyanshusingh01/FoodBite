@@ -18,6 +18,7 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/foodBite")
+@CrossOrigin("*")
 public class FoodController {
 
     private final FoodService foodService;
