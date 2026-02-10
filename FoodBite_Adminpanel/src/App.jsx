@@ -5,7 +5,8 @@ import Sidebar from './components/sidebar/Sidebar'
 import {Route, Routes} from 'react-router-dom'
 import LIstFood from './pages/List food/LIstFood'
 import Order from './pages/Order/Order'
-import { ToastContainer, toast } from 'react-toastify'
+import { ToastContainer} from 'react-toastify'
+
 
 const App = () => {
   return (
