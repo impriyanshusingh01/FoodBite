@@ -12,3 +12,13 @@ export const foodDataList = async () => {
         throw error;
     }
 } 
+
+export const foodById = async (id) => {
+    try {
+        const response = await axios.get(Api_Url+"/"+id)
+        return response.data;
+    } catch (error) {
+        console.error("Error while fetching food by id: ",error)
+        throw error;
+    }
+}

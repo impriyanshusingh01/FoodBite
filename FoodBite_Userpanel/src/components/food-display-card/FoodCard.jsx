@@ -4,7 +4,7 @@ import './foodCard.css'
 import { foodDataList } from '../../service/foodBite';
 import { toast } from 'react-toastify';
 import { Link } from 'react-router-dom';
-import FoodItem from '../food-item/FoodItem';
+
 
 
 
@@ -41,7 +41,7 @@ const FoodCard = ({categoryPass = "All", searchTextCategory = ""}) => {
                         key={food.id} 
                         className="w-full max-w-xs bg-neutral-primary-soft border border-default rounded-xl shadow-sm  flex flex-col ">
 
-                            <Link to="/item">
+                            <Link to={`/item/${food.id}`}>
                        
                             <img
                                 className="w-full h-80 object-cover rounded-lg mb-4"
