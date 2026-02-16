@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom'
 import { foodById } from '../../service/foodBite';
 import { toast } from 'react-toastify';
 
-const FoodItem = () => {
+const FoodItem = ({addCartData}) => {
     const { id } = useParams();
     const [dataById, setDataById] = useState({})
     const fetchFoodById = async (id) => {
@@ -36,7 +36,7 @@ const FoodItem = () => {
                         <p className="lead">{dataById.description}</p>
                         <div className="d-flex">
                            
-                            <button className="btn btn-outline-dark shrink-0" type="button">
+                            <button className="btn btn-outline-dark shrink-0" type="button" onClick={() => addCartData(id)}>
                                 <i className="bi-cart-fill me-1"></i>
                                 Add to cart
                             </button>

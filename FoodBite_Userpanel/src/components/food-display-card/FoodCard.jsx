@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 
 
 
-const FoodCard = ({categoryPass = "All", searchTextCategory = ""}) => {
+const FoodCard = ({categoryPass = "All", searchTextCategory = "", addCartData}) => {
 
     const [foodList, setFoodList] = useState([]);
     
@@ -72,7 +72,7 @@ const FoodCard = ({categoryPass = "All", searchTextCategory = ""}) => {
 
                                 <button
                                     type="button"
-                                    className=" text-white text-sm px-3 py-2  bg-blue-400 rou">
+                                    className=" text-white text-sm px-3 py-2  bg-blue-400 rou" onClick={() => addCartData(food.id)}>
                                     Add to cart
                                 </button>
                             </div>
