@@ -33,7 +33,7 @@ export const deleteCart = async (cartItemId) => {
 
 export const getCartContext = async () => {
     try {
-        const res = await axios.get("http://localhost:8080/cart", { headers: { Authorization: `Bearer ${token}` } })
+        const res = await axios.get(Api_Url, { headers: { Authorization: `Bearer ${token}` } })
         return res.data;
     } catch (error) {
         console.log(error)
@@ -42,7 +42,7 @@ export const getCartContext = async () => {
 
 export const addCart = async (foodId) => {
     try {
-        const res = await axios.post(`http://localhost:8080/cart/${foodId}`, { quantity: 1 }, { headers: { Authorization: `Bearer ${token}` } })
+        const res = await axios.post(`${Api_Url}/${foodId}`, { quantity: 1 }, { headers: { Authorization: `Bearer ${token}` } })
         return res.data;
     } catch (error) {
         console.log(error)
