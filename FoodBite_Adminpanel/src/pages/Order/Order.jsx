@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
+import { getFoodOrder } from '../../services/OrderService';
 
 
 const Order = () => {
@@ -8,8 +9,8 @@ const Order = () => {
 
   const fetchOrders = async () => {
     try {
-      const res = await axios.get("http://localhost:8080/my/order/admin");
-      setOrders(res.data);
+      const res = await getFoodOrder()
+      setOrders(res);
     } catch (error) {
       console.log(error);
     }

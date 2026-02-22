@@ -1,5 +1,5 @@
 import axios from "axios";
-const API_URL = "http://localhost:8080/foodBite"
+const API_URL = import.meta.env.VITE_FOOD_API_URL;
 
 export const getAllFood = async () => {
     try {
