@@ -4,6 +4,7 @@ import com.foodBite.FoodBite.filter.JwtAuthFilter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 
 import org.springframework.security.config.Customizer;
@@ -33,6 +34,7 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable())
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
+                        .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                         .requestMatchers("/", "/foodBite/**", "/foodBite", "/foodBite/auth/**", "/my/order/admin").permitAll()
                         .anyRequest().authenticated())
                 .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
@@ -54,10 +56,7 @@ public class SecurityConfig {
 
         CorsConfiguration config = new CorsConfiguration();
 
-        config.setAllowedOriginPatterns(List.of(
-                "http://3.110.132.33",
-                "http://localhost:*"
-        ));
+        config.addAllowedOriginPattern("*");   // ⭐ IMPORTANT CHANGE
 
         config.setAllowedMethods(List.of(
                 "GET","POST","PUT","PATCH","DELETE","OPTIONS"
