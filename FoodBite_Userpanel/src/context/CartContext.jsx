@@ -1,18 +1,19 @@
 import axios from "axios";
 import { createContext, useEffect, useState } from "react";
+import { getCartContext } from "../service/cartService";
 
 export const  CartContext = createContext();
 
 export const CartProvider = ({children}) => {
-  const token = localStorage.getItem('token')
+ 
 
   const[countCart, setCountCart] = useState(0);
 
   const fetchCartList = async () => {
-    const res = await axios.get("http://localhost:8080/cart", {headers: {Authorization: `Bearer ${token}`}})
+    const res = await getCartContext();
   
     let cartQuant = 0;
-    res.data?.forEach(item => {
+    res?.forEach(item => {
       cartQuant += item.quantity;
     })
     setCountCart(cartQuant)

@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react'
+import { orderList } from '../../service/orderService';
 
 const OrderHistory = () => {
 
@@ -9,12 +10,9 @@ const OrderHistory = () => {
   const fetchOrders = async () => {
     try {
 
-      const res = await axios.get(
-        "http://localhost:8080/my/order",
-        { headers: { Authorization: `Bearer ${token}` } }
-      );
+     const res = await orderList()
       
-      setOrders(res.data);
+      setOrders(res);
 
     } catch (err) {
       console.log(err);

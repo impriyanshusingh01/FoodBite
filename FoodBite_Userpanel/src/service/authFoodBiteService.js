@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const Api_Url = "http://localhost:8080/foodBite/auth";
+const Api_Url = import.meta.env.VITE_AUTH_API_URL;
 
 export const registerUser = async (register) => {
     try {

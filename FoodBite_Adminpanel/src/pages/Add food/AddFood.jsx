@@ -35,6 +35,7 @@ const AddFood = () => {
             setImage(null)
         } catch (error) {
             toast.error("Something happen while adding food")
+            console.log(error)
         }
 
     }
@@ -73,8 +74,8 @@ const AddFood = () => {
                                     <option value="Burger">Burger</option>
                                     <option value="Pizza">Pizza</option>
                                     <option value="Cake">Cake</option>
-                                    <option value="rolls">Rolls</option>
-                                    <option value="rolls">Ice Cream</option>
+                                    <option value="Rolls">Rolls</option>
+                                    <option value="Ice Cream">Ice Cream</option>
                                 </select>
                             </div>
 

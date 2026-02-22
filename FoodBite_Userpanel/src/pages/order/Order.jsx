@@ -3,10 +3,11 @@ import React, { useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { CartContext } from '../../context/CartContext';
+import { placeOrder } from '../../service/orderService';
 
 const Order = () => {
 
-    const token = localStorage.getItem('token')
+    
     const navigate = useNavigate()
     const {fetchCartList} = useContext(CartContext)
 
@@ -27,7 +28,7 @@ const Order = () => {
     const submitHandler = async (e) => {
         e.preventDefault();
       try {
-          const res = await axios.post("http://localhost:8080/my/order", address, { headers: { Authorization: `Bearer ${token}` } })
+          const res = await placeOrder(address)
         setAddress({ fullName: "", phone: "", street: "", city: "", pincode: "" })
         toast.success("your order placed successfully")
         fetchCartList();

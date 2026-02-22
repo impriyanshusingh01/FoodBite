@@ -24,8 +24,8 @@ const FoodItem = ({addCartData}) => {
     return (
         <section className="py-5">
             <div className="container px-4 px-lg-5 my-5">
-                <div className="row gx-4 gx-lg-5 align-items-center">
-                    <div className="col-md-6"><img className="card-img-top mb-5 mb-md-0" src={dataById.imageUrl} alt="..." /></div>
+                <div className="row gx-4 gx-lg-5 align-items-center ">
+                    <div className="col-md-6  w-auto"><img className="object-cover rounded-lg" src={dataById.imageUrl} alt="details" width={500} /></div>
                     <div className="col-md-6">
                       
                         <h1 className="display-5 fw-bolder">{dataById.name}</h1>
@@ -36,7 +36,7 @@ const FoodItem = ({addCartData}) => {
                         <p className="lead">{dataById.description}</p>
                         <div className="d-flex">
                            
-                            <button className="btn btn-outline-dark shrink-0" type="button" onClick={() => addCartData(id)}>
+                            <button className=" text-white text-sm px-3 py-2 bg-orange-500 hover:bg-orange-600" type="button" onClick={() => addCartData(id)}>
                                 <i className="bi-cart-fill me-1"></i>
                                 Add to cart
                             </button>

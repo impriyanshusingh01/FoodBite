@@ -3,29 +3,31 @@ import { Link } from 'react-router-dom'
 
 import axios from 'axios'
 import { CartContext } from '../../context/CartContext'
+import './Cart.css'
+import { calculateCartDta, deleteCart, updataCartDta } from '../../service/cartService'
 
 const Cart = () => {
 
     const [cartData, setCartData] = useState(null)
-    const token = localStorage.getItem('token')
+   
     const {fetchCartList} = useContext(CartContext)
 
     const getCartData = async () => {
-        const res = await axios.get("http://localhost:8080/cart/calculate", { headers: { Authorization: `Bearer ${token}` } })
+        const res = await calculateCartDta()
    
-        setCartData(res.data)
+        setCartData(res)
     }
 
     const updateQuantityData = async(cartItemId, qty) => {
-        const res = await axios.patch("http://localhost:8080/cart"+"/" + cartItemId,{quantity: qty},{ headers: { Authorization: `Bearer ${token}` } })
-        setCartData(res.data)
+       const res = await updataCartDta(cartItemId, qty)
+        setCartData(res)
        
         fetchCartList()
     }
 
     const deleteCartData = async (cartItemId) => {
-        const res = await axios.delete("http://localhost:8080/cart"+"/"+cartItemId, { headers: { Authorization: `Bearer ${token}` } })
-        setCartData(res.data)
+       const res = await deleteCart(cartItemId)
+        setCartData(res)
           fetchCartList()
     }
 
@@ -113,7 +115,7 @@ const Cart = () => {
 
 
                     <div className="text-start mb-4">
-                        <Link to={'/'} className="btn btn-outline-primary">
+                        <Link to={'/'} className="continue text-white text-sm px-3 py-2 rounded-lg bg-orange-500  hover:bg-orange-600 w-100 transition duration-200">
                             <i className="bi bi-arrow-left me-2"></i>Continue Shopping
                         </Link>
                     </div>
@@ -140,7 +142,7 @@ const Cart = () => {
                                 <strong>{cartData?.totalAmount}</strong>
                                 <strong></strong>
                             </div>
-                            <Link to="/order"><button className="btn btn-primary w-100" >Proceed to Checkout</button></Link>
+                            <Link to="/order"><button className=" text-white text-sm px-3 py-2 rounded-lg bg-orange-500  hover:bg-orange-600 w-100 transition duration-200" >Proceed to Checkout</button></Link>
                         </div>
                     </div>
 

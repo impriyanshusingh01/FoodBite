@@ -1,5 +1,7 @@
 package com.foodBite.FoodBite.controller;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.foodBite.FoodBite.modal.request.FoodRequest;
 import com.foodBite.FoodBite.modal.response.FoodResponse;
 import com.foodBite.FoodBite.service.Impl.FoodService;
@@ -11,7 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import tools.jackson.databind.ObjectMapper;
+
 
 import java.util.List;
 
@@ -24,7 +26,7 @@ public class FoodController {
     private final FoodService foodService;
 
    @PostMapping
-    public ResponseEntity<FoodResponse> addFood(@RequestPart("food") String food, @RequestPart("file") MultipartFile file) {
+    public ResponseEntity<FoodResponse> addFood(@RequestPart("food") String food, @RequestPart("file") MultipartFile file) throws JsonProcessingException {
 
         FoodRequest request =
                 new ObjectMapper().readValue(food, FoodRequest.class);

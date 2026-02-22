@@ -9,15 +9,18 @@ const SearchBox = ({setCategoryPass, setSearchTextCategory}) => {
                 <div className="relative flex items-center">
 
             
-                    <i className="bi bi-tags absolute left-3 top-1/2 -translate-y-1/2 text-gray-500"></i>
+                    <i className="bi bi-tags absolute left-3 top-1/2 -translate-y-1/2 text-white"></i>
 
                    
                     <select
-                        className=" pl-10 pr-6 py-3 rounded-lg bg-gray-200 outline-none"  onChange={(e) => setCategoryPass(e.target.value)}>
+                        className=" pl-10 pr-6 py-3 rounded-lg  outline-none cursor-pointer   text-white text-sm  bg-orange-500 hover:bg-orange-600 transition duration-200"  onChange={(e) => setCategoryPass(e.target.value)}>
                         <option>All</option>
                         <option>Biryani</option>
                         <option>Burger</option>
                         <option>Pizza</option>
+                        <option>Rolls</option>
+                        <option>Cake</option>
+                        <option>Ice Cream</option>
                     </select>
 
                 </div>
@@ -35,10 +38,9 @@ const SearchBox = ({setCategoryPass, setSearchTextCategory}) => {
 
                 <button
                     type="button"
-                    className="search-btn inline-flex items-center text-white bg-blue-500 
-                 hover:bg-blue-600  text-sm px-3 py-2.5">
+                    className="text-white text-sm px-3 py-2 bg-orange-500 hover:bg-orange-600 transition duration-200 ">
                    <i className="bi bi-search mx-2"></i>
-                    Search
+                   
                 </button>
 
             </div>

@@ -13,6 +13,7 @@ import axios from 'axios'
 import { CartContext } from './context/CartContext'
 import Order from './pages/order/Order'
 import OrderHistory from './pages/order-history/OrderHistory'
+import { addCart } from './service/cartService'
 
 const App = () => {
 
@@ -22,7 +23,7 @@ const App = () => {
   const token = localStorage.getItem('token')
 
  const addCartData = async(foodId) => {
-  const res = await axios.post(`http://localhost:8080/cart/${foodId}`, {quantity: 1}, {headers: {Authorization: `Bearer ${token}`}})
+  const res = await addCart(foodId)
   fetchCartList()
 }
        

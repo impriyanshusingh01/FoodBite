@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-import './foodCard.css'
+import './FoodCard.css'
 import { foodDataList } from '../../service/foodBite';
 import { toast } from 'react-toastify';
 import { Link } from 'react-router-dom';
@@ -69,12 +69,14 @@ const FoodCard = ({categoryPass = "All", searchTextCategory = "", addCartData}) 
                                 <span className="text-2xl font-bold text-heading">
                                     ₹{food.price}
                                 </span>
+                               
 
                                 <button
                                     type="button"
-                                    className=" text-white text-sm px-3 py-2  bg-blue-400 rou" onClick={() => addCartData(food.id)}>
+                                    className=" text-white text-sm px-3 py-2 bg-orange-500 hover:bg-orange-600 transition duration-200" onClick={() => addCartData(food.id)}>
                                     Add to cart
                                 </button>
+                                
                             </div>
                         </div>
                     </div>
