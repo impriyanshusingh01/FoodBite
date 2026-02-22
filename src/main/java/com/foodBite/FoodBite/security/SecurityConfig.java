@@ -36,8 +36,8 @@ public class SecurityConfig {
 //                        .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
 //                        .requestMatchers("/", "/foodBite/**", "/foodBite", "/foodBite/auth/**", "/my/order/admin").permitAll()
 //                        .anyRequest().authenticated())
-                .authorizeHttpRequests(auth-> auth.anyRequest().permitAll())
-                .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
+                .authorizeHttpRequests(auth-> auth.anyRequest().permitAll());
+//                .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
         return httpSecurity.build();
     }
 
