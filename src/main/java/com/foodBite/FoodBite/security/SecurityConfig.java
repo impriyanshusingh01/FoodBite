@@ -33,12 +33,10 @@ public class SecurityConfig {
                 .cors(cors -> cors.configurationSource(corsConfigurationSource()))
                 .csrf(csrf -> csrf.disable())
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-//                .authorizeHttpRequests(auth -> auth
-//                        .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
-//                        .requestMatchers("/", "/foodBite/**", "/foodBite", "/foodBite/auth/**", "/my/order/admin").permitAll()
-//                        .anyRequest().authenticated())
-                .authorizeHttpRequests(auth-> auth.anyRequest().permitAll());
-//                .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
+                .authorizeHttpRequests(auth -> auth
+                        .requestMatchers("/foodBite/**", "/foodBite", "/foodBite/auth/**", "/my/order/admin").permitAll()
+                        .anyRequest().authenticated())
+                .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
         return httpSecurity.build();
     }
 
