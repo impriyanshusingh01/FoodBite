@@ -42,24 +42,20 @@ public class SecurityConfig {
 
 
     @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
-
-    @Bean
-    public AuthenticationManager authenticationManager(AuthenticationConfiguration configuration) throws Exception {
-        return configuration.getAuthenticationManager();
-    }
-
-    @Bean
     public CorsConfigurationSource corsConfigurationSource() {
 
         CorsConfiguration config = new CorsConfiguration();
 
-
         config.setAllowedOriginPatterns(List.of(
-                "http://3.110.132.33",
-                "http://3.110.132.33:*",
+                "http://foodbite.priyanshdev.online",
+                "https://foodbite.priyanshdev.online",
+
+                "http://www.priyanshdev.online",
+                "https://www.priyanshdev.online",
+
+                "http://priyanshdev.online",
+                "https://priyanshdev.online",
+
                 "http://localhost:*"
         ));
 
