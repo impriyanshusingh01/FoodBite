@@ -141,8 +141,8 @@ const Cart = () => {
                             <div className="d-flex justify-content-between mb-4">
                                 <span>Total</span>
                                 <strong>{cartData?.totalAmount}</strong>
-                                <strong></strong>
                             </div>
+                                <strong></strong>
                             <Link to="/order"><button className=" text-white text-sm px-3 py-2 rounded-lg bg-orange-500  hover:bg-orange-600 w-100 transition duration-200" >Proceed to Checkout</button></Link>
                         </div>
                     </div>
