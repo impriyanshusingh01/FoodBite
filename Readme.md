@@ -1,12 +1,15 @@
 # 🍴 FoodBite – Full Stack Food Ordering Platform
 ###  Spring Boot • React • MongoDB • JWT Authentication • AWS S3 • Full Stack Architecture
 
+ **Live Project:** [foodbite.priyanshdev.online](https://foodbite.priyanshdev.online)
+
 ##  Description
 FoodBite is a full-stack food ordering web application built using **Spring Boot** for backend and **React (Vite)** for frontend.  
 The platform allows users to explore food items, manage carts, and place orders, while admin manage products and monitor customer orders through a dedicated admin panel.
 
 The project focuses on building a structured backend with JWT authentication, MongoDB data handling, AWS S3 image storage, and a dynamic frontend experience.
 
+➡️ UI enhancements and minor feature improvements are ongoing.
 
 ---
 
@@ -112,14 +115,25 @@ This project also serves as a personal reference so I can revisit how I implemen
 ---
 ## 📸 Screenshots
 
-### 👤 User Interface
-- Home / Explore Page / Checkout
-- Cart Management
-- Order Flow
+### User Interface
 
-### 🍽 Admin Panel
-- Product List
-- Add / Update Food
+####  Explore
+![Home](screenshots/Explore.png)
+
+####  Cart Page
+![Cart](screenshots/Cart.png)
+
+####  Checkout Flow
+![Checkout](screenshots/CheckOut.png)
+
+####  Order History
+![Orders](screenshots/Order.png)
+
+---
+
+### 🍽 Admin Panel (Private Module)
+
+![Admin](screenshots/admin.png)
 
 ---
 
