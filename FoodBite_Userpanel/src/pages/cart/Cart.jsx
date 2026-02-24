@@ -139,6 +139,7 @@ const Cart = () => {
                             </div>
                             <hr />
                             <div className="d-flex justify-content-between mb-4">
+                                <span>Total</span>
                                 <strong>{cartData?.totalAmount}</strong>
                                 <strong></strong>
                             </div>
